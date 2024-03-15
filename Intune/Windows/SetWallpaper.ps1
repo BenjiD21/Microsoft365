@@ -76,10 +76,10 @@ public class Params
     $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
 }
 # URL used to retrieve the image
-$url = "https://www.occhio.com/sites/default/files/2024-03/CRI_95_Farbverlauf_klein.jpg"
+$url = "https://www.example.com/image.jpg"
 
 # Donwloading the image to the device
-Invoke-WebRequest $url -OutFile C:\Windows\Web\Wallpaper\CRI_95_Farbverlauf_klein.jpg
+Invoke-WebRequest $url -OutFile https://www.example.com/image.jpg
 
 # Using the Set-Wallpaper function to set the downloaded image as wallpaper
-Set-WallPaper -Image "C:\Windows\Web\Wallpaper\CRI_95_Farbverlauf_klein.jpg" -Style Fill
+Set-WallPaper -Image "C:\Windows\Web\Wallpaper\image.jpg" -Style Fill
