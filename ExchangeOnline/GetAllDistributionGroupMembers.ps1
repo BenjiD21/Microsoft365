@@ -1,3 +1,6 @@
+# Gets a list of all members of all distribution groups and mail-enabled security groups
+# %FILTERVALUE% determines the included groups
+
 $Result=@()
 $groups = Get-DistributionGroup -Filter "EmailAddresses -like '%FILTERVALUE%'" -ResultSize Unlimited
 $totalmbx = $groups.Count
