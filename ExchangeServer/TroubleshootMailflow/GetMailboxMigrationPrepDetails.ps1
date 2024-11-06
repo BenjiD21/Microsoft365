@@ -27,9 +27,9 @@ $mailboxAttributes = $_ | Get-Mailboxstatistics | Select DisplayName, ItemCount,
 # Create a new Object per mailbox. Save the gathered information inside the object. Add the object to the array.
 $Result += New-Object PSObject -property @{
 
-  DisplayName = $mailboxAttributes.DisplayName
+	DisplayName = $mailboxAttributes.DisplayName
 
-  Mail = $userMail.Mail
+	Mail = $userMail.Mail
 		
 	Enabled = $userEnabled.Enabled
 
@@ -40,6 +40,8 @@ $Result += New-Object PSObject -property @{
 	LastLogonTime = $mailboxAttributes.LastLogonTime
 		
 	WhenChanged = $_.whenChanged
+
+	RecipientTypeDetails = $_.RecipientTypeDetails
 
 	MailboxGuid = $_.ExchangeGuid }
 
