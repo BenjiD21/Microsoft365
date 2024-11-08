@@ -1,13 +1,28 @@
-## This script retreives information about unused accepted domains on Exchange Server
-## Should be run on a Exchange Server inside the Cluster
+<#
+.SYNOPSIS
+Retrieves information about unused accepted domains on an Exchange Server.
 
-# Get all mailboxes
+.DESCRIPTION
+This script gathers information on accepted domains and checks if they are used in any mailboxes, distribution groups, or contacts.
+Outputs a report indicating whether each domain is in use.
+
+.REQUIREMENTS
+Must be run on an Exchange Server within the cluster.
+
+.OUTPUTS
+- Displays output in the console in table format.
+- Exports results to CSV (C:\temp\UnusedAcceptedDomains.csv).
+
+.AUTHOR
+Benjamin Daur/audius
+
+.VERSION
+1.0 - Initial release
+#>
+
+# Collect all mailboxes, distribution groups, and contacts
 $mailboxes = Get-Mailbox -ResultSize Unlimited
-
-# Get all Distribution Groups
 $groups = Get-DistributionGroup -ResultSize Unlimited
-
-# Get all Contacts
 $contacts = Get-MailContact -ResultSize Unlimited
 
 # Get all accepted domains
