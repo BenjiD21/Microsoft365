@@ -1,5 +1,23 @@
-## This script retreives information used for mailbox analysis to define whether mailboxes will be migrated to EXO
-## Should be run on a Exchange Server inside the Cluster
+<#
+.SYNOPSIS
+Retrieves information for mailbox analysis to determine migration eligibility to Exchange Online (EXO).
+
+.DESCRIPTION
+This script collects data on mailboxes in an Exchange Server environment. It includes mailbox details, 
+such as item count, mailbox size, last logon time, and user status, to help decide if the mailbox will be migrated.
+
+.REQUIREMENTS
+Must be run on an Exchange Server within the cluster with the necessary permissions to access Active Directory and mailbox statistics.
+
+.OUTPUTS
+- Exports results to CSV (C:\temp\MailboxMigrationPrepDetails.csv).
+
+.AUTHOR
+Benjamin Daur/audius
+
+.VERSION
+1.0 - Initial release
+#>
 
 # Create an empty Array used for the Output
 $Result=@()
