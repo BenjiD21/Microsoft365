@@ -8,7 +8,7 @@ Connect-AzureAD
 
 $users = Get-AzureADGroup -ObjectId "%INSERTOBJECTID%" | Get-AzureADGroupMember -All $true
 
-# For each user in the specified group - revoke all refresh tokens
+# For each user in the specified group - revoke all session tokens
 
 foreach ($user in $users)
 {
